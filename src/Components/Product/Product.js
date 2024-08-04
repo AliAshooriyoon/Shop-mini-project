@@ -2,8 +2,7 @@ import data from "./../../data";
 import ShopItem from "../ShopItem/ShopItem";
 import React from "react";
 import "./Product.css";
-import items from "../../cardItems";
-const Product = ({ selectProduct, selected }) => {
+const Product = ({ selectProduct, selected, items }) => {
   const buyItem = (e) => {
     console.log(e.id);
     selectProduct(e);

@@ -1,7 +1,11 @@
 import "./Item.css";
-import items from "../../cardItems";
-const Item = ({ pic, name, price, sItem }) => {
+const Item = ({ sItem, items, changeItems }) => {
   console.log(items);
+  const deleteItem = () => {
+    items = items.filter((i) => i.id !== sItem.id);
+    console.log(items);
+    changeItems(items);
+  };
   return (
     <div>
       <div className="item">
@@ -13,10 +17,23 @@ const Item = ({ pic, name, price, sItem }) => {
           />
           <p className="itemTitle">{sItem.name}</p>
         </div>
-        <p className="itemPrice">{sItem.price}</p>
-        <button className="itemRemove">Remove</button>
+        <p className="itemPrice">{sItem.price}$</p>
+        <button className="itemRemove" onClick={() => deleteItem()}>
+          Remove
+        </button>
       </div>
     </div>
   );
 };
 export default Item;
+
+//   items.some(function (i) {
+//     console.log(items);
+//     if (i.id === sItem.id) {
+//       items.splice(items.indexOf(i) - 1, 1);
+//       return true;
+//     } else {
+//       console.log(`Undefined id : ${i.id} : ${sItem.id} `);
+//     }
+//   });
+// }
